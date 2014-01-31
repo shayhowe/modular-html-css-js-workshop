@@ -1,3 +1,210 @@
 /* Front-end Legos Workshop with Shay Howe & Darby Frey
 ======================================================= */
 
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+/* HTML5 display definitions
+======================================================= */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+body {
+  background: #3a3a40;
+  font: 16px/22px "Open Sans", Verdana, Helvetica, sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font: 300 16px/22px "Open Sans", Verdana, Helvetica, sans-serif;
+  margin: 0;
+}
+
+
+
+h1 {
+  font-size: 18px;
+}
+h2 {
+  font-size: 14px;
+  color: rgba(255, 255, 255, .5);
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  -webkit-transition: all .1s linear;
+     -moz-transition: all .1s linear;
+       -o-transition: all .1s linear;
+          transition: all .1s linear;
+}
+
+
+
+.player {
+  position: relative;
+  margin: 66px auto;
+  width: 352px;
+  z-index: 2;
+}
+.now-playing {
+  background: url("../img/brand-new.jpg") 50% 50% no-repeat;
+  border-radius: 5px 5px 0 0;
+  height: 352px;
+  position: relative;
+}
+
+
+.controls {
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, .85));
+  background-image:    -moz-linear-gradient(transparent, rgba(0, 0, 0, .85));
+  background-image:      -o-linear-gradient(transparent, rgba(0, 0, 0, .85));
+  background-image:         linear-gradient(transparent, rgba(0, 0, 0, .85));
+  padding: 44px 20px 22px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.controls li {
+  display: inline-block;
+  vertical-align: middle;
+}
+.control {
+  border: 2px solid rgba(255, 255, 255, .4);
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  display: block;
+  margin: 0 8px;
+  height: 44px;
+  width: 44px;
+}
+.control:hover {
+  border-color: #fff;
+  background-color: transparent;
+}
+.controls-sm {
+  height: 38px;
+  width: 38px;
+}
+.control-prev {
+  background-image: url("../img/controls/prev.svg");
+}
+.control-play {
+  background-image: url("../img/controls/play.svg");
+}
+.control-next {
+  background-image: url("../img/controls/next.svg");
+}
+
+
+
+.title {
+  background: #3a3a40;
+  color: #fff;
+  padding: 22px 20px;
+}
+
+
+.songs {
+  background: #fff;
+  border-radius: 0 0 5px 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.songs li {
+  padding: 22px 20px 0 20px;
+}
+.ir {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+.media {
+  display: block;
+}
+
+.media,
+.media-body {
+  overflow: hidden;
+}
+.media-object {
+  float: left;
+  margin: 0 20px 22px 0;
+}
+.media-object img {
+  border: 0;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+       -o-border-radius: 5px;
+          border-radius: 5px;
+  display: block;
+  height: 66px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cover-background {
+  background: url("../img/brand-new.jpg") 50% 50% no-repeat;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+  bottom: 0;
+  -webkit-filter: blur(60px);
+     -moz-filter: blur(60px);
+          filter: blur(60px);
+  left: 0;
+  position: absolute;
+  right: 0;
+  opacity: .3;
+  top: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+     -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
