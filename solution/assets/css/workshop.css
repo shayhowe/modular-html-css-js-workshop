@@ -9,7 +9,6 @@
           box-sizing: border-box;
 }
 
-
 /* HTML5 display definitions
 ======================================================= */
 
@@ -28,32 +27,61 @@ summary {
   display: block;
 }
 
+
+/* Base
+======================================================= */
+
 body {
   background: #3a3a40;
   font: 16px/22px "Open Sans", Verdana, Helvetica, sans-serif;
   margin: 0;
 }
 
+/* Typography
+======================================================= */
+
 h1, h2, h3, h4, h5, h6 {
-  font: 300 16px/22px "Open Sans", Verdana, Helvetica, sans-serif;
+  font-weight: 400;
   margin: 0;
 }
 
+/* Sizes */
 
-
-h1 {
+h1,
+.h-headline {
   font-size: 18px;
 }
-h2 {
+h2,
+.h-subheadline {
+  font-size: 16px;
+}
+h3,
+.h-byline {
   font-size: 14px;
-  color: rgba(255, 255, 255, .5);
 }
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+h4,
+.h-standfirst {
+  font-size: 12px;
 }
+h5,
+.h-related {
+  font-size: 11px;
+}
+h6,
+.h-promo {
+  font-size: 10px;
+}
+
+/* Weights */
+
+.h-bold {
+  font-weight: 600;
+}
+
+/* Links */
+
 a {
+  color: #97979a;
   text-decoration: none;
   -webkit-transition: all .1s linear;
      -moz-transition: all .1s linear;
@@ -61,7 +89,19 @@ a {
           transition: all .1s linear;
 }
 
+/* Lists
+======================================================= */
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Player
+======================================================= */
 
 .player {
   position: relative;
@@ -69,13 +109,20 @@ a {
   width: 352px;
   z-index: 2;
 }
-.now-playing {
+
+/* Currently playing
+======================================================= */
+
+.player-current {
   background: url("../img/brand-new.jpg") 50% 50% no-repeat;
   border-radius: 5px 5px 0 0;
   height: 352px;
+  overflow: hidden;
   position: relative;
 }
 
+/* Controls
+======================================================= */
 
 .controls {
   background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, .85));
@@ -84,10 +131,17 @@ a {
   background-image:         linear-gradient(transparent, rgba(0, 0, 0, .85));
   padding: 44px 20px 22px 20px;
   position: absolute;
-  bottom: 0;
+  bottom: -110px;
   left: 0;
   right: 0;
   text-align: center;
+  -webkit-transition: all .18s ease-in-out;
+     -moz-transition: all .18s ease-in-out;
+       -o-transition: all .18s ease-in-out;
+          transition: all .18s ease-in-out;
+}
+.player-current:hover .controls {
+  bottom: 0;
 }
 .controls li {
   display: inline-block;
@@ -120,13 +174,21 @@ a {
   background-image: url("../img/controls/next.svg");
 }
 
+/* Controls
+======================================================= */
 
-
-.title {
+.player-title {
   background: #3a3a40;
   color: #fff;
   padding: 22px 20px;
 }
+.player-title h2 {
+  color: #97979a;
+}
+
+
+
+
 
 
 .songs {
@@ -137,7 +199,11 @@ a {
   padding: 0;
 }
 .songs li {
+  border-bottom: 1px solid #bfbfbf;
   padding: 22px 20px 0 20px;
+}
+.songs li:last-child {
+  border: none;
 }
 .ir {
   text-indent: 100%;
@@ -156,7 +222,7 @@ a {
 }
 .media-object {
   float: left;
-  margin: 0 20px 22px 0;
+  margin: 0 20px 21px 0;
 }
 .media-object img {
   border: 0;
