@@ -1,38 +1,21 @@
 var RdioService = function(){
   this.playbackToken = null;
-  this.playlist = {};
-  this.songs = [];
-
-  this.getPlaybackToken();
-  this.getPlaylist();
+  this.getPlaybackToken(window.location.hostname);
 };
 
 RdioService.prototype = {
-  getPlaybackToken: function(){
+  getPlaybackToken: function(domain){
     var self = this;
 
-    $.post(Settings.RDIO_SERVICE_HOST + "/playback_tokens", function(response) {
+    $.post(Settings.RDIO_SERVICE_HOST + "/playback_tokens", {domain: domain}, function(response) {
       self.playbackToken = response.token;
-    });
-  },
 
-  getPlaylist: function(){
-    var self = this;
+        $('#player').rdio(self.playbackToken);
 
-    $.get(Settings.RDIO_SERVICE_HOST + "/playlists/p8056088", function(response) {
-      self.playlist = response.data;
-      var songs = self.playlist.songs;
-
-      $.each(songs, function(i, song){
-        self.renderSongs(song);
-      });
+        $('#player').bind('ready.rdio', function() {
+          console.log('rdio ready');
+        });
 
     });
-  },
-
-  renderSongs: function(songData){
-    song = new Song(songData);
-    this.songs.push(song);
-    song.addToPlaylist();
   }
 };

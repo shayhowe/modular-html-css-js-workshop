@@ -1,4 +1,5 @@
 var Song = function(data){
+  this.id = data.id;
   this.title = data.name;
   this.artist = data.artist;
   this.album = data.album;
@@ -16,5 +17,6 @@ Song.prototype = {
 
   play: function(){
     this.render();
+    $('#player').rdio().play(this.id);
   }
 };

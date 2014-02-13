@@ -19,6 +19,8 @@ Playlist.prototype = {
     this.skipTo(0);
 
     this.render();
+
+    this.upcomingSongs[0].play();
   },
 
   skipTo: function(playlistIndex){
