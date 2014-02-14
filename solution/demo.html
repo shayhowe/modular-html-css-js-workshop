@@ -76,7 +76,7 @@
       </li>
     </script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
     <script src="assets/js/jquery.rdio.js"></script>
     <script src="assets/js/app.js"></script>
@@ -85,26 +85,6 @@
     <script src="assets/js/player.js"></script>
     <script src="assets/js/playlist.js"></script>
     <script src="assets/js/song.js"></script>
-
-    <script>
-      $(document).ready(function() {
-        App.Player = new Player('p5017');
-
-        App.RdioService = new RdioService();
-
-        $('[data-playlist="song"]').live('click', function(event) {
-          App.Playlist.skipTo($(this).data('playlistIndex'));
-        });
-
-        $('[data-player="next"]').live('click', function(event) {
-          App.Player.playNext()
-        });
-
-        $('[data-player="previous"]').live('click', function(event) {
-          App.Player.playPrevious()
-        });
-      });
-    </script>
 
   </body>
 </html>

@@ -13,9 +13,15 @@ RdioService.prototype = {
         $('#player').rdio(self.playbackToken);
 
         $('#player').bind('ready.rdio', function() {
-          console.log('rdio ready');
+          // console.log('rdio ready');
         });
 
     });
-  }
+  },
+
+  getPlaylistData: function(playlist_id){
+    $.get(Settings.RDIO_SERVICE_HOST + "/playlists/" + playlist_id, function(response) {
+      App.Playlist = new Playlist(response.data);
+    });
+  },
 };

@@ -20,7 +20,7 @@ Playlist.prototype = {
 
     this.render();
 
-    this.upcomingSongs[0].play();
+    // this.upcomingSongs[0].play();
   },
 
   skipTo: function(playlistIndex){
@@ -39,7 +39,7 @@ Playlist.prototype = {
     $('.songs').empty();
 
     this.upcomingSongs.forEach(function(song){
-      $(App.Templates.playlistEntryTemplate(song)).appendTo($('.songs'));
+      $(App.Templates.playlistEntry(song)).appendTo($('.songs'));
     });
   }
 };
