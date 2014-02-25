@@ -4,20 +4,19 @@ App = {
   },
   Player: {},
   Playlist: {},
-  RdioService: {},
+  RdioService: new RdioService(),
   initialize: function(){
-    App.RdioService = new RdioService();
-    App.Player = new Player('p5017');
+    App.Player = new Player('p8056088');
 
-    $('body').on('click', '[data-playlist="song"]', function(event) {
+    $('body').on('click', '[data-playlist-song]', function(event) {
       App.Playlist.skipTo($(this).data('playlistIndex'));
     });
 
-    $('body').on('click', '[data-player="next"]', function(event) {
+    $('body').on('click', '[data-player-next]', function(event) {
       App.Player.playNext();
     });
 
-    $('body').on('click', '[data-player="previous"]', function(event) {
+    $('body').on('click', '[data-player-previous]', function(event) {
       App.Player.playPrevious();
     });
   }

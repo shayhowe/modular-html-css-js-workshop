@@ -20,7 +20,7 @@ Playlist.prototype = {
 
     this.render();
 
-    // this.upcomingSongs[0].play();
+    this.upcomingSongs[0].play();
   },
 
   skipTo: function(playlistIndex){

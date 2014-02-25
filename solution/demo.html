@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/workshop.css">
 
     <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/vendor/html5shiv.js"></script>
     <![endif]-->
 
   </head>
@@ -25,13 +25,13 @@
       <header class="player cover-art controls-container" data-player="artwork">
         <ul class="controls controls-bottom controls-player boost">
           <li>
-            <a class="control-prev ir" href="#" data-player="previous">Previous</a>
+            <a class="control-prev ir" href="#" data-player-previous>Previous</a>
           </li>
           <li>
             <a class="control-play ir" href="#">Play/Pause</a>
           </li>
           <li>
-            <a class="control-next ir" href="#" data-player="next">Next</a>
+            <a class="control-next ir" href="#" data-player-next>Next</a>
           </li>
         </ul>
       </header>
@@ -57,7 +57,7 @@
     <div id='player' class="cover-art cover-background boost" data-player="artwork"></div>
 
     <script data-template="playlist-entry" type="text/x-handlebars-template">
-      <li class="playlist-song flag" data-playlist-index="{{playlistIndex}}" data-playlist="song">
+      <li class="playlist-song flag" data-playlist-index="{{playlistIndex}}" data-playlist-song>
         <figure class="flag-object">
           <img src="{{artwork}}" alt="{{artist}}">
         </figure>
@@ -78,10 +78,13 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
-    <script src="assets/js/jquery.rdio.js"></script>
-    <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/vendor/jquery.rdio.js"></script>
+    <script src="assets/js/vendor/rdio-service.js"></script>
+    <script src="data/playlist.json"></script>
+
     <script src="assets/js/settings.js"></script>
-    <script src="assets/js/rdio-service.js"></script>
+    <script src="assets/js/app.js"></script>
     <script src="assets/js/player.js"></script>
     <script src="assets/js/playlist.js"></script>
     <script src="assets/js/song.js"></script>

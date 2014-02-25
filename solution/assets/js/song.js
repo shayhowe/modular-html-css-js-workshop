@@ -2,9 +2,7 @@ var Song = function(data){
   this.id = data.id;
   this.title = data.name;
   this.artist = data.artist;
-  this.album = data.album;
   this.artwork = data.icon400;
-  this.duration = data.duration;
   this.playlistIndex = data.index;
 };
 
@@ -17,6 +15,6 @@ Song.prototype = {
 
   play: function(){
     this.render();
-    $('#player').rdio().play(this.id);
+    App.RdioService.playSong(this.id);
   }
 };
