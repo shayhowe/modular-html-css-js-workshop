@@ -22,7 +22,7 @@
 
       <!-- Player -->
 
-      <header class="player cover-art controls-container" data-player="artwork">
+      <header class="player cover-art controls-container" data-player-artwork>
         <ul class="controls controls-bottom controls-player boost">
           <li>
             <a class="control-prev ir" href="#" data-player-previous>Previous</a>
@@ -39,8 +39,8 @@
       <!-- Now Playing -->
 
       <section class="now-playing">
-        <h1 data-player="title"></h1>
-        <h2 data-player="artist" class="artist h-byline"></h2>
+        <h1 data-player-title></h1>
+        <h2 data-player-artist class="artist h-byline"></h2>
       </section>
 
       <!-- Playlist -->
@@ -54,7 +54,7 @@
 
     <!-- Background -->
 
-    <div id='player' class="cover-art cover-background boost" data-player="artwork"></div>
+    <div id='player' class="cover-art cover-background boost" data-player-artwork></div>
 
     <script data-template="playlist-entry" type="text/x-handlebars-template">
       <li class="playlist-song flag" data-playlist-index="{{playlistIndex}}" data-playlist-song>

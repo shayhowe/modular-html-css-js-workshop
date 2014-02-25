@@ -8,9 +8,9 @@ var Song = function(data){
 
 Song.prototype = {
   render: function(){
-    $('[data-player="title"]').html(this.title);
-    $('[data-player="artist"]').html(this.artist);
-    $('[data-player="artwork"]').css('background-image','url(' + this.artwork + ')');
+    $('[data-player-title]').html(this.title);
+    $('[data-player-artist]').html(this.artist);
+    $('[data-player-artwork]').css('background-image','url(' + this.artwork + ')');
   },
 
   play: function(){
