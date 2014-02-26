@@ -27,15 +27,19 @@ summary {
   display: block;
 }
 
-
 /* Base
 ======================================================= */
 
+html {
+  height: 100%;
+}
 body {
   background-color: #3a3a40;
   color: #4c4c53;
   font: 16px/22px "Open Sans", Verdana, Helvetica, sans-serif;
   margin: 0;
+  position: relative;
+  min-height: 100%;
 }
 
 /* Typography
@@ -180,11 +184,7 @@ ul {
 .controls a {
   background-image: url("../img/controls.png");
   background-image: url("../img/controls.svg");
-  -webkit-border-radius: 50%;
-     -moz-border-radius: 50%;
-      -ms-border-radius: 50%;
-       -o-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   border-style: solid;
   border-width: 2px;
   display: block;
@@ -193,10 +193,10 @@ ul {
 /* Player controls */
 
 .controls-player {
-  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, .5));
-  background-image:    -moz-linear-gradient(transparent, rgba(0, 0, 0, .5));
-  background-image:      -o-linear-gradient(transparent, rgba(0, 0, 0, .5));
-  background-image:         linear-gradient(transparent, rgba(0, 0, 0, .5));
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  background:    -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  background:      -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  background:         linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
   bottom: 0;
   padding: 44px 20px 22px 20px;
   -webkit-transform: translateY(100%);
@@ -223,11 +223,11 @@ ul {
 /* Playlist controls */
 
 .controls-playlist {
-  background-image: -webkit-linear-gradient(to right, transparent, #fff 35px);
-  background-image:    -moz-linear-gradient(to right, transparent, #fff 35px);
-  background-image:      -o-linear-gradient(to right, transparent, #fff 35px);
-  background-image:         linear-gradient(to right, transparent, #fff 35px);
-  background:               linear-gradient(to right, transparent, #fff 35px);
+  background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  background:    -moz-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  background:      -o-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  background:         linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  background:         linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
   height: 100%;
   padding: 0 20px 0 40px;
   right: 0;
@@ -278,8 +278,9 @@ ul {
 ======================================================= */
 
 .container {
+  padding: 66px 0;
   position: relative;
-  margin: 66px auto;
+  margin: 0 auto;
   width: 352px;
   z-index: 2;
 }
@@ -288,15 +289,10 @@ ul {
 ======================================================= */
 
 .player {
-  -webkit-border-radius: 5px 5px 0 0;
-     -moz-border-radius: 5px 5px 0 0;
-      -ms-border-radius: 5px 5px 0 0;
-       -o-border-radius: 5px 5px 0 0;
-          border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
   height: 352px;
   position: relative;
 }
-
 .player:hover .controls-player {
   -webkit-transform: translateY(0);
      -moz-transform: translateY(0);
@@ -322,11 +318,7 @@ ul {
 
 .playlist {
   background: #fff;
-  -webkit-border-radius: 0 0 5px 5px;
-     -moz-border-radius: 0 0 5px 5px;
-      -ms-border-radius: 0 0 5px 5px;
-       -o-border-radius: 0 0 5px 5px;
-          border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
 }
 .playlist-song {
   border-bottom: 1px solid #bfbfbf;
@@ -350,14 +342,10 @@ ul {
   padding: 0 20px;
 }
 .playlist-song .flag-object img {
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-      -ms-border-radius: 5px;
-       -o-border-radius: 5px;
-          border-radius: 5px;
+  border-radius: 5px;
   display: block;
   height: 66px;
 }
-.playlist-song .flag-body {
+.playlist-song .controls-container {
   padding-right: 20px;
 }
