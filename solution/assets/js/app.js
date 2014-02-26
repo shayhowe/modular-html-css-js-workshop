@@ -9,14 +9,20 @@ App = {
     App.Player = new Player('p8056088');
 
     $('body').on('click', '[data-playlist-song]', function(event) {
-      App.Playlist.skipTo($(this).data('playlistIndex'));
+      event.preventDefault();
+      $target = $(event.target);
+      if (!$target.hasClass('control-fav') && !$target.hasClass('control-share')) {
+        App.Playlist.skipTo($(this).index());
+      }
     });
 
     $('body').on('click', '[data-player-next]', function(event) {
+      event.preventDefault();
       App.Player.playNext();
     });
 
     $('body').on('click', '[data-player-previous]', function(event) {
+      event.preventDefault();
       App.Player.playPrevious();
     });
   }

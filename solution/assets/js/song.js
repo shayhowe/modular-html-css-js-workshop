@@ -3,7 +3,6 @@ var Song = function(data){
   this.title = data.name;
   this.artist = data.artist;
   this.artwork = data.icon400;
-  this.playlistIndex = data.index;
 };
 
 Song.prototype = {

@@ -34,7 +34,7 @@ html {
   height: 100%;
 }
 body {
-  background-color: #3a3a40;
+  background: #3a3a40;
   color: #4c4c53;
   font: 16px/22px "Open Sans", Verdana, Helvetica, sans-serif;
   margin: 0;
@@ -136,8 +136,27 @@ ul {
   display: table-cell;
   vertical-align: middle;
 }
+.flag-object img {
+  display: block;
+}
 .flag-body {
   width: 100%;
+}
+
+/* Loading
+======================================================= */
+
+.loading {
+  color: #95959a;
+  margin: 0 auto;
+  padding: 66px;
+  width: 292px;
+}
+.loading .flag-object {
+  padding-right: 10px;
+}
+.loading .flag-object img {
+  height: 22px;
 }
 
 /* Cover art
@@ -343,7 +362,6 @@ ul {
 }
 .playlist-song .flag-object img {
   border-radius: 5px;
-  display: block;
   height: 66px;
 }
 .playlist-song .controls-container {

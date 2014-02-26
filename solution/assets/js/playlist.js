@@ -2,37 +2,46 @@ var Playlist = function(data){
   this.data = data;
   this.songs = [];
   this.upcomingSongs = [];
-  this.previousSongIndex = -1;
-  this.currentSongIndex = 0;
-  this.nextSongIndex = 1;
+  this.currentSong = {};
 
   this.initialize();
 };
 
 Playlist.prototype = {
   initialize: function(){
-    this.data.songs.forEach(function(songData, index){
-      songData.index = index;
+    this.data.songs.forEach(function(songData){
       this.songs.push(new Song(songData));
     }, this);
 
     this.skipTo(0);
 
     this.render();
-
-    this.upcomingSongs[0].play();
   },
 
-  skipTo: function(playlistIndex){
-    this.upcomingSongs = this.songs.slice(playlistIndex, playlistIndex + 10);
+  skipTo: function(index){
+    this.currentSong = this.songs[index];
 
-    this.previousSongIndex = this.upcomingSongs[0].playlistIndex - 1;
-    this.currentSongIndex = this.upcomingSongs[0].playlistIndex;
-    this.nextSongIndex = this.upcomingSongs[0].playlistIndex + 1;
+    this.songs = this.songs.concat(this.songs.splice(0, index + 1))
+    this.upcomingSongs = this.songs.slice(0, 5);
 
     this.render();
 
-    this.upcomingSongs[0].play();
+    this.currentSong.play();
+  },
+
+  next: function(){
+    this.skipTo(0);
+  },
+
+  prev: function(){
+    this.songs.unshift(this.songs.pop());
+    this.upcomingSongs = this.songs.slice(0, 5);
+
+    this.currentSong = this.songs[this.songs.length - 1];
+
+    this.render();
+
+    this.currentSong.play();
   },
 
   render: function(){

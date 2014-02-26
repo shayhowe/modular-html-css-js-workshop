@@ -9,10 +9,10 @@ Player.prototype = {
   },
 
   playNext: function(){
-    App.Playlist.skipTo(App.Playlist.nextSongIndex);
+    App.Playlist.next();
   },
 
   playPrevious: function(){
-    App.Playlist.skipTo(App.Playlist.previousSongIndex);
+    App.Playlist.prev();
   }
 };
