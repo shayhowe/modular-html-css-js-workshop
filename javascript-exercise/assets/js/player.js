@@ -1,18 +1,25 @@
-var Player = function(playlist_id){
-  this.playlist_id = playlist_id;
+var Player = function(playlistId){
+  this.playlistId = playlistId;
+  this.playlistData = {};
   this.initialize();
 };
 
 Player.prototype = {
   initialize: function(){
-    App.RdioService.getPlaylistData(this.playlist_id);
+    var self = this;
+    App.RdioService.getPlaylistData(this.playlistId, function(data){
+      self.playlistData = data;
+      // App.Playlist = new Playlist(this.playlistData);
+      $('[data-loading-flag]').hide();
+      $('[data-player-container]').fadeIn();
+    });
   },
 
   playNext: function(){
-    App.Playlist.skipTo(App.Playlist.nextSongIndex);
+    App.Playlist.next();
   },
 
   playPrevious: function(){
-    App.Playlist.skipTo(App.Playlist.previousSongIndex);
+    App.Playlist.prev();
   }
 };

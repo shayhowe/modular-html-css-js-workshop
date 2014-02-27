@@ -1,12 +1,15 @@
-var Player = function(playlist_id){
-  this.playlist_id = playlist_id;
+var Player = function(playlistId){
+  this.playlistId = playlistId;
+  this.playlistData = {};
   this.initialize();
 };
 
 Player.prototype = {
   initialize: function(){
-    App.RdioService.getPlaylistData(this.playlist_id, function(data){
-      App.Playlist = new Playlist(data);
+    var self = this;
+    App.RdioService.getPlaylistData(this.playlistId, function(data){
+      self.playlistData = data;
+      App.Playlist = new Playlist(self.playlistData);
       $('[data-loading-flag]').hide();
       $('[data-player-container]').fadeIn();
     });

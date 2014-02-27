@@ -16,9 +16,9 @@ RdioService.prototype = {
     }
   },
 
-  getPlaylistData: function(playlist_id, callback){
+  getPlaylistData: function(playlistId, callback){
     if(Settings.RDIO_SERVICE_LIVE_DATA_MODE){
-      $.get(Settings.RDIO_SERVICE_HOST + "/playlists/" + playlist_id, function(response) {
+      $.get(Settings.RDIO_SERVICE_HOST + "/playlists/" + playlistId, function(response) {
         callback(response.data);
       });
     } else {
@@ -26,9 +26,9 @@ RdioService.prototype = {
     }
   },
 
-  playSong: function(song_id){
+  playSong: function(songId){
     if(Settings.RDIO_SERVICE_LIVE_DATA_MODE){
-      $('#js-player').rdio().play(song_id);
+      $('#js-player').rdio().play(songId);
     }
   }
 };

@@ -36,7 +36,7 @@ Playlist.prototype = {
 
     upcomingSongs = this.songs.slice(0, 5);
     upcomingSongs.forEach(function(song){
-      $(App.Templates.playlistEntry(song)).appendTo($('.songs'));
+      $(App.Templates.playlistSong(song)).appendTo($('[data-song-list]'));
     });
 
     this.currentSong.play();
