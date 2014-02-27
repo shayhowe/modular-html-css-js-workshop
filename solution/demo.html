@@ -18,7 +18,16 @@
   </head>
   <body>
 
-    <section class="container">
+    <div class="loading flag" data-loading-flag>
+      <figure class="flag-object">
+        <img src="assets/img/loading.gif" alt="Currently loading...">
+      </figure>
+      <div class="flag-body">
+        <h3>Currently loading&#8230;</h3>
+      </div>
+    </div>
+
+    <section class="container" data-player-container>
 
       <!-- Player -->
 
@@ -46,7 +55,7 @@
       <!-- Playlist -->
 
       <section class="playlist">
-        <ul class="songs">
+        <ul class="songs" data-song-list>
         </ul>
       </section>
 
@@ -54,10 +63,10 @@
 
     <!-- Background -->
 
-    <div id='player' class="cover-art cover-background boost" data-player-artwork></div>
+    <div id='js-player' class="cover-art cover-background boost" data-player-artwork></div>
 
-    <script data-template="playlist-entry" type="text/x-handlebars-template">
-      <li class="playlist-song flag" data-playlist-index="{{playlistIndex}}" data-playlist-song>
+    <script data-template-song type="text/x-handlebars-template">
+      <li class="playlist-song flag" data-playlist-song>
         <figure class="flag-object">
           <img src="{{artwork}}" alt="{{artist}}">
         </figure>
@@ -84,10 +93,11 @@
     <script src="assets/js/vendor/jquery.rdio.js"></script>
     <script src="assets/js/vendor/rdio-service.js"></script>
     <script src="data/playlist.json"></script>
+    <script src="assets/js/player.js"></script>
 
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/player.js"></script>
+
     <script src="assets/js/playlist.js"></script>
     <script src="assets/js/song.js"></script>
 

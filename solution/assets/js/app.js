@@ -1,6 +1,6 @@
 App = {
   Templates: {
-    playlistEntry: Handlebars.compile($('[data-template="playlist-entry"]').html())
+    playlistSong: Handlebars.compile($('[data-template-song]').html())
   },
   Player: {},
   Playlist: {},

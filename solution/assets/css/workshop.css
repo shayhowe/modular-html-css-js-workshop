@@ -163,7 +163,6 @@ ul {
 ======================================================= */
 
 .cover-art {
-  background: url("../img/jimmy-eat-world.jpg") 50% 50% no-repeat;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
@@ -297,6 +296,7 @@ ul {
 ======================================================= */
 
 .container {
+  display: none;
   padding: 66px 0;
   position: relative;
   margin: 0 auto;
