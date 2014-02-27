@@ -5,7 +5,11 @@ var Player = function(playlist_id){
 
 Player.prototype = {
   initialize: function(){
-    App.RdioService.getPlaylistData(this.playlist_id);
+    App.RdioService.getPlaylistData(this.playlist_id, function(data){
+      App.Playlist = new Playlist(data);
+      $('[data-loading-flag]').hide();
+      $('[data-player-container]').fadeIn();
+    });
   },
 
   playNext: function(){
