@@ -163,7 +163,9 @@ ul {
 ======================================================= */
 
 .cover-art {
-  background: url("../img/jimmy-eat-world.jpg") 50% 50% no-repeat;
+  background-image: url("../img/jimmy-eat-world.jpg");
+  background-position: 50%;
+  background-repeat: no-repeat;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
@@ -209,72 +211,6 @@ ul {
   display: block;
 }
 
-/* Player controls */
-
-.controls-player {
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
-  background:    -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
-  background:      -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
-  background:         linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
-  bottom: 0;
-  padding: 44px 20px 22px 20px;
-  -webkit-transform: translateY(100%);
-     -moz-transform: translateY(100%);
-      -ms-transform: translateY(100%);
-       -o-transform: translateY(100%);
-          transform: translateY(100%);
-  width: 100%;
-}
-.controls-player a {
-  border-color: #fff;
-  height: 38px;
-  margin: 0 8px;
-  width: 38px;
-}
-.controls-player .control-play {
-  height: 44px;
-  width: 44px;
-}
-.controls-player a:hover {
-  background-color: rgba(0, 0, 0, .5);
-}
-
-/* Playlist controls */
-
-.controls-playlist {
-  background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
-  background:    -moz-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
-  background:      -o-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
-  background:         linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
-  background:         linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
-  height: 100%;
-  padding: 0 20px 0 40px;
-  right: 0;
-  top: 0;
-  -webkit-transform: translateX(100%);
-     -moz-transform: translateX(100%);
-      -ms-transform: translateX(100%);
-       -o-transform: translateX(100%);
-          transform: translateX(100%);
-}
-.controls-playlist li {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-     -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-.controls-playlist a {
-  border-color: #bfbfbf;
-  height: 32px;
-  width: 32px;
-}
-.controls-playlist a:hover {
-  border-color: #7c7c87;
-}
-
 /* Control icons */
 
 .control-play {
@@ -310,14 +246,40 @@ ul {
 .player {
   border-radius: 5px 5px 0 0;
   height: 352px;
-  position: relative;
 }
-.player:hover .controls-player {
+.player-controls {
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  background:    -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  background:      -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  background:         linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  bottom: 0;
+  padding: 44px 20px 22px 20px;
+  -webkit-transform: translateY(100%);
+     -moz-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+       -o-transform: translateY(100%);
+          transform: translateY(100%);
+  width: 100%;
+}
+.player:hover .player-controls {
   -webkit-transform: translateY(0);
      -moz-transform: translateY(0);
       -ms-transform: translateY(0);
        -o-transform: translateY(0);
           transform: translateY(0);
+}
+.player-controls a {
+  border-color: #fff;
+  height: 38px;
+  margin: 0 8px;
+  width: 38px;
+}
+.player-controls a:hover {
+  background-color: rgba(0, 0, 0, .5);
+}
+.player-controls .control-play {
+  height: 44px;
+  width: 44px;
 }
 
 /* Now playing
@@ -342,20 +304,12 @@ ul {
 .playlist-song {
   border-bottom: 1px solid #bfbfbf;
   padding: 22px 0 21px 0;
-  position: relative;
 }
 .playlist-song:last-child {
   border: none;
 }
 .playlist-song:hover {
   cursor: pointer;
-}
-.playlist-song:hover .controls-playlist {
-  -webkit-transform: translateX(0);
-     -moz-transform: translateX(0);
-      -ms-transform: translateX(0);
-       -o-transform: translateX(0);
-          transform: translateX(0);
 }
 .playlist-song .flag-object {
   padding: 0 20px;
@@ -366,4 +320,44 @@ ul {
 }
 .playlist-song .controls-container {
   padding-right: 20px;
+}
+.playlist-controls {
+  background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  background:    -moz-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  background:      -o-linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  background:         linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  background:         linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  height: 100%;
+  padding: 0 20px 0 40px;
+  right: 0;
+  top: 0;
+  -webkit-transform: translateX(100%);
+     -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+       -o-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.playlist-song:hover .playlist-controls {
+  -webkit-transform: translateX(0);
+     -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+       -o-transform: translateX(0);
+          transform: translateX(0);
+}
+.playlist-controls li {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+     -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+       -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.playlist-controls a {
+  border-color: #bfbfbf;
+  height: 32px;
+  width: 32px;
+}
+.playlist-controls a:hover {
+  border-color: #7c7c87;
 }
