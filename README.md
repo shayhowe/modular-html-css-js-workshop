@@ -1,6 +1,6 @@
 # Front End Legos Workshop
 
-* [Presentation Slides](TODO: ADD LINK)
+* [Presentation Slides](https://speakerdeck.com/shayhowe/front-end-legos-workshop-2-reusable-html-css-and-js)
 * [Workshop Files](https://github.com/shayhowe/front-end-legos-workshop-2/archive/master.zip)
 
 You&#8217;ve been tasked with developing a new front end feature. HTML, CSS, and JavaScript are nothing new to you, in fact you even know a few tricks to get this feature out the door. It doesn&#8217;t take you long and the code works like a charm, yet you have a looming suspicion that some of the code might not be up to par. You&#8217;re likely right, and you&#8217;re definitely better than that.
@@ -235,5 +235,10 @@ App.Templates.playlistSong(data)
 ```
 this.songs = this.songs.concat(this.songs.splice(0, 1));
 ```
+
 * Call `render` on `currentSong` at the end of the `Playlist` render function
 * In the `Playlist` `initialize` function, add a call to `render` so that the playlist will be rendered when then object is created
+
+## Final Product
+
+![Workshop Final Product Screenshot](screenshot.png)
