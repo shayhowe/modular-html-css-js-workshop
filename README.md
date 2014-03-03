@@ -82,7 +82,7 @@ We often write code without paying attention to the bigger picture, or overall c
 
 **Step 4**
 
-* Inside the `initialize` function, create a new instance of the Player object and pass in a `playlistId` key with a value of `p8056088`
+* Inside the `initialize` function, create a new instance of the `Player` object and pass in a `playlistId` key with a value of `p8056088`
 * Assign that new object to `App.Player`
 * Call `initialize` on document ready so that the application boots when the page loads:
 
@@ -118,8 +118,8 @@ $(document).ready(function() {
 **Step 3**
 
 * Back in the `player.js` file, find the `getPlaylistData` callback *(Hint: it&#8217;s where the `self.playlistData = data` assignment happens)*
-* In that callback function, create a new Playlist object and assign it to `App.Playlist`
-* Pass the callback `data` into the new Playlist object
+* In that callback function, create a new `Playlist` object and assign it to `App.Playlist`
+* Pass the callback `data` into the new `Playlist` object
 * Take a look at `App.Playlist.data` in the console, the data should look the same as `PLAYLIST_DATA.data` and `App.Player.playlistData`
 
 ## Building the Song Object
@@ -181,6 +181,7 @@ mySong = new Song(data)
 
 * Create an `render` method on the prototype of the `Song` object
 * Use jQuery to render the song title, artist and artwork to the browser using the data attributes as your selectors
+* Try rendering you song object from the previous section: `mySong.render()`
 
 ## Rendering the Playlist
 
@@ -218,7 +219,7 @@ App.Templates.playlistSong(data)
 
 * Add a data attribute of `data-song-list` to the `ul` tag that wraps all of the list items in the playlist
 * Remove all the static `li` elements from the playlist, leaving just the wrapping `ul` tag
-* Create a `render` method in the `Playlist` object to render the playlist
+* Create a `render` method in the `Playlist` prototype to render the playlist
 * We only want to display the next 5 songs on the playlist, so use the `slice` function to get the first 5 songs from the `songs` array
 * Now, use a `forEach` loop the render each object in your new array and append it to the `data-song-list` `ul` node
 * Try out your new render method by calling `App.Playlist.render()` in the console
@@ -231,7 +232,9 @@ App.Templates.playlistSong(data)
 ```
 this.songs = this.songs.concat(this.songs.splice(0, 1));
 ```
-* Call `render` on `currentSong`, and add a call to `render` into the `initialize` method in `Playlist`
+
+* Call `render` on `currentSong` at the end of the `Playlist` render function
+* In the `Playlist` `initialize` function, add a call to `render` so that the playlist will be rendered when then object is created
 
 ## Final Product
 
