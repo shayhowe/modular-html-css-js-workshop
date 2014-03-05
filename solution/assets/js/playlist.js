@@ -32,11 +32,11 @@ Playlist.prototype = {
   },
 
   render: function(){
-    $('[data-song-list]').empty();
+    $('[data-playlist]').empty();
 
     upcomingSongs = this.songs.slice(0, 5);
     upcomingSongs.forEach(function(song){
-      $(App.Templates.playlistSong(song)).appendTo($('[data-song-list]'));
+      $(App.Templates.playlistSong(song)).appendTo($('[data-playlist]'));
     });
 
     this.currentSong.play();

@@ -16,12 +16,12 @@ App = {
       }
     });
 
-    $('body').on('click', '[data-player-next]', function(event) {
+    $('body').on('click', '[data-control-next]', function(event) {
       event.preventDefault();
       App.Player.playNext();
     });
 
-    $('body').on('click', '[data-player-previous]', function(event) {
+    $('body').on('click', '[data-control-prev]', function(event) {
       event.preventDefault();
       App.Player.playPrevious();
     });

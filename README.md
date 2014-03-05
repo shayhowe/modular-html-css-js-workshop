@@ -350,7 +350,7 @@ We often write code without paying attention to the bigger picture, or overall c
 <script src="data/playlist.json"></script>
 ```
 
-* Add `data-loading-flag` to the loading flag element
+* Add `data-player-loading` to the loading flag element
 * Add `data-player-container` to the main player container element, and set the display property to `none` for the `.container` class
 
 * Look at `PLAYLIST_DATA.data` and use the console to familiarize yourself with the data structure
@@ -464,7 +464,7 @@ mySong = new Song(data)
 
 ### Step 1
 
-* Add data attributes to the markup in the places where the song information should be rendered, we&#8217;ll use: `data-player-title`, `data-player-artist`, `data-player-artwork`
+* Add data attributes to the markup in the places where the song information should be rendered, we&#8217;ll use: `data-song-title`, `data-song-artist`, `data-song-artwork`
 * Be sure to get both places for the artwork attribute
 
 ### Step 2
@@ -507,11 +507,11 @@ App.Templates.playlistSong(data)
 
 ### Step 4
 
-* Add a data attribute of `data-song-list` to the `ul` tag that wraps all of the list items in the playlist
+* Add a data attribute of `data-playlist` to the `ul` tag that wraps all of the list items in the playlist
 * Remove all the static `li` elements from the playlist, leaving just the wrapping `ul` tag
 * Create a `render` method in the `Playlist` prototype to render the playlist
 * We only want to display the next 5 songs on the playlist, so use the `slice` function to get the first 5 songs from the `songs` array
-* Now, use a `forEach` loop the render each object in your new array and append it to the `data-song-list` `ul` node
+* Now, use a `forEach` loop the render each object in your new array and append it to the `data-playlist` `ul` node
 * Try out your new render method by calling `App.Playlist.render()` in the console
 
 ### Step 5

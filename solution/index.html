@@ -20,7 +20,7 @@
 
     <!-- Loading -->
 
-    <div class="loading flag" data-loading-flag>
+    <div class="loading flag" data-player-loading>
       <figure class="flag-object">
         <img src="assets/img/loading.gif" alt="Currently loading...">
       </figure>
@@ -33,16 +33,16 @@
 
       <!-- Player -->
 
-      <header class="player cover-art controls-container" data-player-artwork>
+      <header class="player cover-art controls-container" data-song-artwork>
         <ul class="controls player-controls boost">
           <li>
-            <a class="control-prev ir" href="#" data-player-previous>Previous</a>
+            <a class="control-prev ir" href="#" data-control-prev>Previous</a>
           </li>
           <li>
             <a class="control-play ir" href="#">Play/Pause</a>
           </li>
           <li>
-            <a class="control-next ir" href="#" data-player-next>Next</a>
+            <a class="control-next ir" href="#" data-control-next>Next</a>
           </li>
         </ul>
       </header>
@@ -50,14 +50,14 @@
       <!-- Now Playing -->
 
       <section class="now-playing">
-        <h1 data-player-title></h1>
-        <h2 data-player-artist class="artist h-byline"></h2>
+        <h1 data-song-title></h1>
+        <h2 data-song-artist class="artist h-byline"></h2>
       </section>
 
       <!-- Playlist -->
 
       <section class="playlist">
-        <ul class="songs" data-song-list>
+        <ul class="songs" data-playlist>
         </ul>
       </section>
 
@@ -65,7 +65,7 @@
 
     <!-- Background -->
 
-    <div class="cover-art cover-background boost" data-player-artwork></div>
+    <div class="cover-art cover-background boost" data-song-artwork></div>
 
     <!-- Playlist template -->
 
