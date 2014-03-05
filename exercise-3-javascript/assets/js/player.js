@@ -9,8 +9,8 @@ Player.prototype = {
     var self = this;
     App.RdioService.getPlaylistData(this.playlistId, function(data){
       self.playlistData = data;
-      // CALLBACK HAPPENS HERE, CREATE NEW PLAYLIST HERE
-      $('[data-loading-flag]').hide();
+      // create a new Playlist instance here
+      $('[data-player-loading]').hide();
       $('[data-player-container]').fadeIn();
     });
   },

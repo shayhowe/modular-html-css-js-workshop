@@ -10,7 +10,7 @@ Player.prototype = {
     App.RdioService.getPlaylistData(this.playlistId, function(data){
       self.playlistData = data;
       App.Playlist = new Playlist(self.playlistData);
-      $('[data-loading-flag]').hide();
+      $('[data-player-loading]').hide();
       $('[data-player-container]').fadeIn();
     });
   },
