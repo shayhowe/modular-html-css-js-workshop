@@ -9,36 +9,323 @@ We often write code without paying attention to the bigger picture, or overall c
 
 ## Assembling Layout
 
-**Step 1**
+### Step 1
 
 * Within the playlist, position the album artwork to the left of the song title and artist name
 * Keep the album artwork vertically centered with the song title and artist name
 
-**Step 2**
+**HTML**
+```
+<li class="playlist-song flag">
+  <figure class="flag-object">
+    <img src="assets/img/#.jpg" alt="Artist Name">
+  </figure>
+  <div class="flag-body">
+    <h3 class="h-subheadline h-bold">Song Title</h3>
+    <h4 class="artist h-byline">Artist Name</h4>
+  </div>
+</li>
+```
 
-* Add a &#8220;Currently loading&#8230;&#8221; section at the top of the file to be used before the playlist loads
+**CSS**
+```
+/* Flag object
+================================== */
+
+.flag {
+  display: table;
+  width: 100%;
+}
+.flag-object,
+.flag-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.flag-object img {
+  display: block;
+}
+.flag-body {
+  width: 100%;
+}
+
+/* Playlist
+================================== */
+
+.playlist-song .flag-object {
+  padding: 0 20px;
+}
+.playlist-song .flag-object img {
+  border-radius: 5px;
+  height: 66px;
+}
+.playlist-song .flag-body {
+  padding-right: 20px;
+}
+```
+
+### Step 2
+
+* Reusing styles from positioning the album artwork, add a `Currently loading…` section at the top of the file to displayed before the playlist loads
+
+**HTML**
+```
+<div class="loading flag">
+  <figure class="flag-object">
+    <img src="assets/img/loading.gif" alt="Currently loading...">
+  </figure>
+  <div class="flag-body">
+    <h3>Currently loading&#8230;</h3>
+  </div>
+</div>
+```
+
+**CSS**
+```
+/* Loading
+================================== */
+
+.loading {
+  color: #95959a;
+  margin: 0 auto;
+  padding: 66px;
+  width: 292px;
+}
+.loading .flag-object {
+  padding-right: 10px;
+}
+.loading .flag-object img {
+  height: 22px;
+}
+```
 
 ## Accommodating Content
 
-**Step 1**
+### Step 1
 
-* Add previous, play, and next controls within the player
-* Make the previous and next controls slightly smaller than the play control
+* Add `previous`, `play`, and `next` controls within the player
+* Make the `previous` and `next` controls slightly smaller than the `play` control
 * Keep all controls vertically centered
 
-**Step 2**
+**HTML**
+```
+<header class="player cover-art controls-container">
+  <ul class="controls">
+    <li>
+      <a class="control-prev ir" href="#">Previous</a>
+    </li>
+    <li>
+      <a class="control-play ir" href="#">Play/Pause</a>
+    </li>
+    <li>
+      <a class="control-next ir" href="#">Next</a>
+    </li>
+  </ul>
+</header>
+```
 
-* Add favorite and share controls within each song in the playlist
+**CSS**
+```
+/* Controls
+================================== */
 
-**Step 3**
+.controls-container {
+  position: relative;
+}
+.controls {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  bottom: 0;
+  padding: 44px 20px 22px 20px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.controls li {
+  display: inline-block;
+  vertical-align: middle;
+}
+.controls a {
+  background-image: url("../img/controls.png");
+  background-image: url(“../img/controls.svg");
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: block;
+  height: 38px;
+  margin: 0 8px;
+  width: 38px;
+}
+.controls a:hover {
+  background-color: rgba(0, 0, 0, .5);
+}
+.controls .control-play {
+  height: 44px;
+  width: 44px;
+}
+```
+
+### Step 2
+
+* Add `favorite` and `share` controls within each song in the playlist
+* Reuse as many styles from the player controls as possible
+
+**HTML**
+```
+<ul class="controls player-controls">
+  ...
+</ul>
+
+...
+
+<div class="flag-body controls-container">
+  <h3 class="h-subheadline h-bold">Song Title</h3>
+  <h4 class="artist h-byline">Artist Name</h4>
+  <ul class="controls playlist-controls">
+    <li>
+      <a class="control-fav ir" href="#">Favorite</a>
+    </li>
+    <li>
+      <a class="control-share ir" href="#">Share</a>
+    </li>
+  </ul>
+</div>
+```
+
+**CSS**
+```
+/* Controls
+======================================================= */
+
+.controls-container {
+  position: relative;
+}
+.controls {
+  position: absolute;
+  text-align: center;
+}
+.controls li {
+  display: inline-block;
+  vertical-align: middle;
+}
+.controls a {
+  background-image: url("../img/controls.png");
+  background-image: url("../img/controls.svg");
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  display: block;
+}
+
+/* Player
+======================================================= */
+
+.player-controls {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  bottom: 0;
+  padding: 44px 20px 22px 20px;
+  width: 100%;
+}
+.player-controls a {
+  border-color: #fff;
+  height: 38px;
+  margin: 0 8px;
+  width: 38px;
+}
+.player-controls a:hover {
+  background-color: rgba(0, 0, 0, .5);
+}
+.player-controls .control-play {
+  height: 44px;
+  width: 44px;
+}
+
+/* Playlist
+======================================================= */
+
+.playlist-controls {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 35px);
+  height: 100%;
+  padding: 0 20px 0 40px;
+  right: 0;
+  top: 0;
+}
+.playlist-controls li {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.playlist-controls a {
+  border-color: #bfbfbf;
+  height: 32px;
+  width: 32px;
+}
+.playlist-controls a:hover {
+  border-color: #7c7c87;
+}
+```
+
+### Step 3
 
 * Animate the player controls to appear from the bottom upon hovering over the player
 * Animate the song controls to appear from the right upon hovering over a song
 * Add hardware acceleration to each of the animations
 
+**HTML**
+```
+<ul class="controls player-controls boost">
+  ...
+</ul>
+<ul class="controls playlist-controls boost">
+  ...
+</ul>
+```
+
+**CSS**
+```
+/* Controls
+================================== */
+
+.controls-container {
+  overflow: hidden;
+  position: relative;
+}
+.controls {
+  position: absolute;
+  text-align: center;
+  transition: all .2s ease-in-out;
+}
+
+/* Player
+================================== */
+
+.player-controls {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  bottom: 0;
+  padding: 44px 20px 22px 20px;
+  transform: translateY(100%);
+  width: 100%;
+}
+.player:hover .player-controls {
+  transform: translateY(0);
+}
+
+/* Playlist (below now playing)
+================================== */
+
+.playlist-controls {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), fff 35px);
+  height: 100%;
+  padding: 0 20px 0 40px;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+}
+.playlist-song:hover .playlist-controls {
+  transform: translateX(0);
+}
+```
+
 ## Setting Up the JavaScript Application
 
-**Step 1**
+### Step 1
 
 * Our application will be using a few JavaScript libraries, let&#8217;s load these files on the page
 * We can load [jQuery](http://jquery.com/) and [Handlebars](http://handlebarsjs.com/) from a CDN:
@@ -63,9 +350,12 @@ We often write code without paying attention to the bigger picture, or overall c
 <script src="data/playlist.json"></script>
 ```
 
+* Add `data-loading-flag` to the loading flag element
+* Add `data-player-container` to the main player container element, and set the display property to `none` for the `.container` class
+
 * Look at `PLAYLIST_DATA.data` and use the console to familiarize yourself with the data structure
 
-**Step 2**
+### Step 2
 
 * Create an object in `app.js` called `App` and load the script on the page:
 
@@ -76,11 +366,11 @@ We often write code without paying attention to the bigger picture, or overall c
 * Give the `App` object `RdioService`, `Templates`, `Player`, and `Playlist` properties, and assign all these properties a value of any empty object
 * Give the object an `initialize` function &#8212; leave the function body empty for now
 
-**Step 3**
+### Step 3
 
 * Assign `App.RdioService` to a new instance of `RdioService`
 
-**Step 4**
+### Step 4
 
 * Inside the `initialize` function, create a new instance of the `Player` object and pass in a `playlistId` key with a value of `p8056088`
 * Assign that new object to `App.Player`
@@ -96,7 +386,7 @@ $(document).ready(function() {
 
 ## Building the Playlist Object
 
-**Step 1**
+### Step 1
 
 * Create a new object called `Playlist` in a file called `playlist.js` and load the script on the page:
 
@@ -110,12 +400,12 @@ $(document).ready(function() {
   * Initalize `currentSong` with an empty object
   * Assign `data` to the value `data` parameter passed in to the constructor
 
-**Step 2**
+### Step 2
 
 * Create an `initialize` method on the prototype of the `Playlist` object &#8212; leave the function body empty for now
 * Call the `initialize` method from the constructor function after the instance variables are assigned
 
-**Step 3**
+### Step 3
 
 * Back in the `player.js` file, find the `getPlaylistData` callback *(Hint: it&#8217;s where the `self.playlistData = data` assignment happens)*
 * In that callback function, create a new `Playlist` object and assign it to `App.Playlist`
@@ -124,7 +414,7 @@ $(document).ready(function() {
 
 ## Building the Song Object
 
-**Step 1**
+### Step 1
 
 * Create a new object called `Song` in a file called `song.js` and load the script on the page:
 
@@ -139,7 +429,7 @@ $(document).ready(function() {
   * `artist` and assign it to `data.artist`
   * `artwork` and assign it to `data.icon400`
 
-**Step 2**
+### Step 2
 
 * Test it out the new `Song` object with the following code:
 
@@ -172,12 +462,12 @@ mySong = new Song(data)
 
 ## Rendering the Song
 
-**Step 1**
+### Step 1
 
 * Add data attributes to the markup in the places where the song information should be rendered, we&#8217;ll use: `data-player-title`, `data-player-artist`, `data-player-artwork`
 * Be sure to get both places for the artwork attribute
 
-**Step 2**
+### Step 2
 
 * Create an `render` method on the prototype of the `Song` object
 * Use jQuery to render the song title, artist and artwork to the browser using the data attributes as your selectors
@@ -185,21 +475,21 @@ mySong = new Song(data)
 
 ## Rendering the Playlist
 
-**Step 1**
+### Step 1
 
 * In the `initialize` method `Playlist` object use a `forEach` loop to create new `Song` objects from each song entry in the `data` object
 * Push those objects into the `songs` array in the `Playlist` object
 * Take a look at `App.Playlist.songs` in the console, you should see a bunch of `Song` objects
 * See if you can render one of them. *(Hint: `App.Playlist.songs[2].render()`)*
 
-**Step 2**
+### Step 2
 
 * Now we need to create a Handlebars template so that we can render each song to the player&#8217;s playlist
 * Add a script tag with the type of `text/x-handlebars-template` and add the `data-template-song` data attribute (This will be the container for the Handlebars template)
 * Copy one of the `li`s from the existing markup and paste it inside the Handlebars container
 * Add Handlebars variables for each of dynamic pieces of the template (`title`, `artist` and `artwork`) (Variables in Handlebars are defined by double curly braces, i.e. `{{myVariable}}`)
 
-**Step 3**
+### Step 3
 
 * Add the template to the `App.Templates` object and give it the name `playlistSong`
 * Use the Handlebars.compile function like so: `Handlebars.compile($('[data-template-song]').html())`
@@ -215,7 +505,7 @@ data = {
 App.Templates.playlistSong(data)
 ```
 
-**Step 4**
+### Step 4
 
 * Add a data attribute of `data-song-list` to the `ul` tag that wraps all of the list items in the playlist
 * Remove all the static `li` elements from the playlist, leaving just the wrapping `ul` tag
@@ -224,7 +514,7 @@ App.Templates.playlistSong(data)
 * Now, use a `forEach` loop the render each object in your new array and append it to the `data-song-list` `ul` node
 * Try out your new render method by calling `App.Playlist.render()` in the console
 
-**Step 5**
+### Step 5
 
 * At the beginning of the render method, assign the first song in the `songs` array to `currentSong` so that we can render that song to the player
 * Since the first song is now our `currentSong`, let move that element to the bottom of the array using the following code:
