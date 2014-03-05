@@ -350,7 +350,7 @@ We often write code without paying attention to the bigger picture, or overall c
 <script src="data/playlist.json"></script>
 ```
 
-* Add `data-player-loading` to the loading flag element
+* Add `data-loading-flag` to the loading flag element
 * Add `data-player-container` to the main player container element, and set the display property to `none` for the `.container` class
 
 * Look at `PLAYLIST_DATA.data` and use the console to familiarize yourself with the data structure
