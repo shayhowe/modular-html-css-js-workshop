@@ -109,7 +109,7 @@ We often write code without paying attention to the bigger picture, or overall c
 **HTML**
 ```
 <header class="player cover-art controls-container">
-  <ul class="controls">
+  <menu class="controls">
     <li>
       <a class="control-prev ir" href="#">Previous</a>
     </li>
@@ -119,7 +119,7 @@ We often write code without paying attention to the bigger picture, or overall c
     <li>
       <a class="control-next ir" href="#">Next</a>
     </li>
-  </ul>
+  </menu>
 </header>
 ```
 
@@ -134,6 +134,7 @@ We often write code without paying attention to the bigger picture, or overall c
 .controls {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
   bottom: 0;
+  margin: 0;
   padding: 44px 20px 22px 20px;
   position: absolute;
   text-align: center;
@@ -169,23 +170,23 @@ We often write code without paying attention to the bigger picture, or overall c
 
 **HTML**
 ```
-<ul class="controls player-controls">
+<menu class="controls player-controls">
   ...
-</ul>
+</menu>
 
 ...
 
 <div class="flag-body controls-container">
   <h3 class="h-subheadline h-bold">Song Title</h3>
   <h4 class="artist h-byline">Artist Name</h4>
-  <ul class="controls playlist-controls">
+  <menu class="controls playlist-controls">
     <li>
       <a class="control-fav ir" href="#">Favorite</a>
     </li>
     <li>
       <a class="control-share ir" href="#">Share</a>
     </li>
-  </ul>
+  </menu>
 </div>
 ```
 
@@ -198,6 +199,7 @@ We often write code without paying attention to the bigger picture, or overall c
   position: relative;
 }
 .controls {
+  margin: 0;
   position: absolute;
   text-align: center;
 }
@@ -270,12 +272,12 @@ We often write code without paying attention to the bigger picture, or overall c
 
 **HTML**
 ```
-<ul class="controls player-controls boost">
+<menu class="controls player-controls boost">
   ...
-</ul>
-<ul class="controls playlist-controls boost">
+</menu>
+<menu class="controls playlist-controls boost">
   ...
-</ul>
+</menu>
 ```
 
 **CSS**
@@ -288,6 +290,7 @@ We often write code without paying attention to the bigger picture, or overall c
   position: relative;
 }
 .controls {
+  margin: 0;
   position: absolute;
   text-align: center;
   transition: all .2s ease-in-out;
@@ -350,7 +353,7 @@ We often write code without paying attention to the bigger picture, or overall c
 <script src="data/playlist.json"></script>
 ```
 
-* Add `data-loading-flag` to the loading flag element
+* Add `data-player-loading` to the loading flag element
 * Add `data-player-container` to the main player container element, and set the display property to `none` for the `.container` class
 
 * Look at `PLAYLIST_DATA.data` and use the console to familiarize yourself with the data structure

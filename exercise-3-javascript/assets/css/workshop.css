@@ -191,6 +191,7 @@ ul {
   position: relative;
 }
 .controls {
+  margin: 0;
   position: absolute;
   text-align: center;
   -webkit-transition: all .2s ease-in-out;
