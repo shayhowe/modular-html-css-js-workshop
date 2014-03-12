@@ -318,7 +318,7 @@ ul {
   border-radius: 5px;
   height: 66px;
 }
-.playlist-song .flag-body {
+.playlist-song .controls-container {
   padding-right: 20px;
 }
 .playlist-controls {
